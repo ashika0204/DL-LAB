@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+x = np.array([[1],[2],[3],[4],[5],[6],[7],[8]])
+y = np.array([0,0,0,0,1,1,1,1])
+model = LogisticRegression()
+model.fit(x,y)
+hours = np.array([[6]])
+print("predictions:",model.predict(hours))
+plt.scatter(x,y)
+plt.plot(x,model.predict_proba(x)[:,1],color="red")
+plt.show()
